@@ -1,0 +1,86 @@
+{% extends "base2.html" %}
+
+{% block title %}MSU Chatbot - Admin Dashboard{% endblock %}
+
+{% block additional_styles %}
+<style>
+    .container-fluid {
+        height: 100vh;
+        /* Ensure the container takes up the full viewport height */
+    }
+
+    .sidebar {
+        background-color: #202020;
+        padding: 10px 0;
+        /* Adjust width from 45% to take up 3 out of 12 columns of the grid */
+        flex: 0 0 25%;
+        /* Equivalent to col-md-3 */
+        max-width: 15%;
+        /* Equivalent to col-md-3 */
+        min-height: 100vh;
+        /* Ensure it's at least the height of the viewport */
+    }
+
+    .nav-item p {
+        color: white;
+        padding: 10px;
+
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+        background-color: red;
+        margin: 05%;
+        color: white;
+    }
+
+    /* Submenu styles */
+    .submenu {
+        padding-left: 20px;
+    }
+
+    .mt-5 {
+        width: 50%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'admin_dashboard' %}active{% endif %}"
+                        href="{{ url_for('admin_dashboard') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <p>Students</p>
+                    <ul class="submenu">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'register_student' %}active{% endif %}"
+                                href="{{ url_for('register_student') }}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'update_student' %}active{% endif %}"
+                                href="{{ url_for('update_student') }}">Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Subject</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            {% block dashboard_content %}
+            <h2>Welcome to the Admin Dashboard</h2>
+            <p>Here you can manage student accounts and other administrative tasks.</p>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

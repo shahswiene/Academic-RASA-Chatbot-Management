@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+        /* Center the content horizontally and vertically */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Full viewport height */
+            margin: 0;
+            background-color: black;
+            /* Black background */
+            color: white;
+            /* White text */
+        }
+
+        h1 {
+            color: red;
+            /* Red heading */
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Countdown styles */
+        #countdown {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration Successful</h1>
+    <p>Your registration was successful. You will be redirected to the <a
+            href="{{ url_for('register_student') }}">registration
+            page</a> in <span id="countdown">5</span> seconds.</p>
+
+    <script>
+        var seconds = 5; // Set the initial countdown time in seconds
+
+        // Function to update the countdown and perform the redirect
+        function updateCountdown() {
+            var countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = seconds;
+
+            if (seconds <= 0) {
+                window.location.href = "{{ url_for('register_student') }}";
+            } else {
+                seconds--;
+                setTimeout(updateCountdown, 1000); // Update every 1 second (1000 milliseconds)
+            }
+        }
+
+        // Start the countdown
+        updateCountdown();
+    </script>
+</body>
+
+</html>

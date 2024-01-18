@@ -1,0 +1,69 @@
+{% extends "admin_dashboard.html" %}
+
+{% block dashboard_content %}
+<div class="container mt-5">
+    <h2>Update Student Details</h2>
+
+    <!-- Start of the form -->
+    <form action="/update_student" method="post">
+
+        <!-- Search bar to search for a student -->
+        <div class="mb-4">
+            <label for="search">Search by Student ID or Email:</label>
+            <input type="text" class="form-control" id="search" name="search" placeholder="Enter Student ID or Email">
+            <button type="submit" name="action" value="search" class="btn btn-secondary mt-2">Search</button>
+        </div>
+
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ student.first_name }}">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ student.last_name }}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ student.email }}">
+        </div>
+        <div class="form-group">
+            <label for="student_id">Student ID:</label>
+            <input type="text" class="form-control" id="student_id" name="student_id" value="{{ student.student_id }}">
+            <input type="hidden" name="student_id_hidden" value="{{ student.id }}">
+
+        </div>
+        <div class="form-group">
+            <label for="faculty">Faculty:</label>
+            <select class="form-control" id="faculty" name="faculty">
+                <option value="FISE" {% if student.faculty=="FISE" %}selected{% endif %}>Faculty of Information Sciences
+                    and Engineering (FISE)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <select class="form-control" id="course" name="course">
+                <option value="BSc. Computer Science" {% if student.course=="BSc. Computer Science" %}selected{% endif
+                    %}>
+                    BSc. Computer Science</option>
+                <option value="BSc. Information Technology" {% if student.course=="BSc. Information Technology"
+                    %}selected{% endif %}>BSc. Information Technology</option>
+                <option value="BSc. Software Engineering" {% if student.course=="BSc. Software Engineering" %}selected{%
+                    endif %}>BSc. Software Engineering</option>
+                <option value="BSc. Computer Networking" {% if student.course=="BSc. Computer Networking" %}selected{%
+                    endif %}>BSc. Computer Networking</option>
+                <option value="Bsc. Computer Forensics" {% if student.course=="Bsc. Computer Forensics" %}selected{%
+                    endif %}>Bsc. Computer Forensics</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" value="{{ student.password }}">
+        </div>
+        <button type="submit" name="action" value="update" class="btn btn-warning">Update</button>
+        <button type="submit" name="action" value="delete" class="btn btn-danger ml-2">Delete</button>
+
+
+    </form>
+</div>
+{% endblock %}

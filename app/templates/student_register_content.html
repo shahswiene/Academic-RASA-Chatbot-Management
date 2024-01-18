@@ -1,0 +1,53 @@
+{% extends "admin_dashboard.html" %}
+
+{% block dashboard_content %}
+<div class="center-content">
+    <div class="container mt-5">
+        <h2>Student Registration</h2>
+        <form action="{{ url_for('register_student') }}" method="post">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="student_id">Student ID:</label>
+                <input type="text" class="form-control" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="faculty">Faculty:</label>
+                <select class="form-control" id="faculty" name="faculty" required>
+                    <option value="FISE">Faculty of Information Sciences and Engineering (FISE)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select class="form-control" id="course" name="course" required>
+                    <option value="BSc. Computer Science">BSc. Computer Science</option>
+                    <option value="BSc. Information Technology">BSc. Information Technology</option>
+                    <option value="BSc. Software Engineering">BSc. Software Engineering</option>
+                    <option value="BSc. Computer Networking">BSc. Computer Networking</option>
+                    <option value="Bsc. Computer Forensics">Bsc. Computer Forensics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+            <!-- You can add more fields as required -->
+            <button type="submit" class="btn btn-danger">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

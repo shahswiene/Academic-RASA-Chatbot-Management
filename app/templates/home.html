@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSU Chatbot</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .title {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 0.5%;
+            text-shadow: 2px 2px 8px red;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 1%;
+            color: red;
+        }
+
+        .btn-custom {
+            margin: 1% 2%;
+        }
+
+        .features {
+            margin-top: 5%;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+        }
+
+        .video-container {
+            margin: 5% 0;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        video {
+            height: 450px;
+        }
+
+        /* Logo images */
+        .logo-left,
+        .logo-right {
+            position: absolute;
+            top: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            /* Adjust the width to make the logo bigger */
+            height: auto;
+        }
+
+        .logo-left {
+            left: -10%;
+            /* Adjust the left position as needed */
+            top: 25%;
+        }
+
+        .logo-right {
+            right: -30%;
+            /* Adjust the right position as needed */
+            top: 5%;
+        }
+
+        footer {
+            margin-top: 5%;
+            font-size: 0.8em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">MSU Chatbot</div>
+        <div class="subtitle">Your 24/7 Academic Assistant</div>
+        <div class="text-center">
+            <a href="" class="btn btn-danger btn-custom">Home</a>
+            <a href="/admin-login" class="btn btn-outline-danger btn-custom">Admin Login</a>
+            <a href="/student-login" class="btn btn-outline-danger btn-custom">Student Login</a>
+        </div>
+        <div class="video-container">
+            <img src="static/img/logo-left.jpg" alt="Left Logo" class="logo-left">
+            <!-- Add your left logo image source -->
+            <video width="100%" autoplay loop muted>
+                <source src="/static/img/msu.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <img src="/static/img/logo-right.png" alt="Right Logo" class="logo-right">
+            <!-- Add your right logo image source -->
+        </div>
+        <div class="features">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    View mentor details
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    Report clashed classes
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    View student details
+                </div>
+            </div>
+        </div>
+        <footer>
+            MSU Chatbot aims to bridge the gap between students and mentors by providing 24/7 support. Addressing
+            challenges like time constraints, lack of resources during off-hours, and reducing the burden on mentors by
+            offering instant, efficient responses.
+        </footer>
+    </div>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
